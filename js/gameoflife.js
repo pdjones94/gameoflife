@@ -12,6 +12,9 @@ canvas.height = pixelSize*cellCount;
 var ctx = canvas.getContext('2d');
 var life = build2DArray();
 
+/*
+**This determines how often the window should redraw, allows for speed change
+*/
 var intervalFunction = function() {
     clearInterval(interval);
     var nextStepArray = evolution(life);
@@ -213,16 +216,17 @@ function evolution(life) {
     return nextStepArray;
 }
 
+//Default start - random population, then display
 randomlyPopulate();
 display(life);
 
+/*
+**Update speed when slider changed
+*/
 function updateSpeed(newSpeed) {
     document.getElementById("speed").innerHTML=newSpeed;
     speed = newSpeed;
-    console.log('updated: ', speed);
 }
 
-/*
-**This determines how often the window should redraw
-*/
+
 
